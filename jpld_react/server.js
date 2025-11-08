@@ -1,5 +1,5 @@
 /*
- * © 2025 [Hannah Carolina Fabian Valensia, Paola Ortega Bravo, Martín García Torres, Carlos Jimenez Zepeda, Santiago Arreola Munguía, Demián Velasco Gómez Llanos, Andrés González Gómez, Rodrigo López Gómez, Ramón Alejandro Briseño Martínez, Nahui Metztli Dado Delgadillo, Ana Mariem Pérez Chacón, Karla Avila Navarro, Ana María Guzman Solís]
+ * © 2025 [Hannah Carolina Fabian Valensia, Paola Ortega Bravo, Martín García Torres, Carlos Jimenez Zepeda, Santiago Arreola Munguía, Demián Velasco Gómez Llanos, Andrés González Gómez, Rodrigo López Gómez, Nahui Metztli Dado Delgadillo, Ana Mariem Pérez Chacón, Karla Avila Navarro, Ana María Guzman Solís]
  * Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
  * 
  * Contributors must be credited when using or modifying this file.
@@ -71,69 +71,70 @@ async function generateSpeech(outputFolder = "./audios") {
 
   const phrases = {
     0: [
-      ["MO-NO", "LE-ÓN", "E-LE-FAN-TE"],
-      ["EL MO-NO SAL-TA.", "EL LE-ÓN RU-GE.", "EL E-LE-FAN-TE CA-MI-NA."],
+      ["MO-no", "Le-ON", "E-le-FAN-te"],
+      ["El MO-no SAL-ta.", "El Le-ON RU-he.", "El E-le-FAN-te ka-MI-na."],
       [
-        "EL MO-NO SAL-TA DE RA-MA EN RA-MA MIENTRAS GRI-TA FUER-TE.",
-        "EL LE-ÓN RU-GE EN ME-DIO DE LA SEL-VA CUAN-DO VE UNA PRE-SA.",
-        "EL E-LE-FAN-TE CA-MI-NA LEN-TA-MEN-TE POR EL RÍ-O CON SU TROM-PA AL-ZA-DA.",
+        "El MO-no SAL-ta de RA-ma en RA-ma mien-tras GRI-ta FWER-te.",
+        "El Le-ON RU-he en ME-dio de la SEL-va kwan-do be u-na PRE-sa.",
+        "El E-le-FAN-te ka-MI-na len-ta-men-te por el RI-o kon su TROM-pa al-SA-da.",
       ],
     ],
     1: [
-      ["LÁ-PIZ", "MO-CHI-LA", "PE-LO-TA"],
-      ["TEN-GO UN LÁ-PIZ A-MA-RI-LLO.", "LA MO-CHI-LA ES GRAN-DE.", "LA PE-LO-TA RU-E-DA."],
+      ["LA-pis", "Mo-CHI-la", "Pe-LO-ta"],
+      ["Ten-go un LA-pis a-ma-RI-yo.", "La Mo-CHI-la es GRAN-de.", "La Pe-LO-ta ru-E-da."],
       [
-        "EL NI-ÑO U-SA UN LÁ-PIZ A-MA-RI-LLO PA-RA ES-CRI-BIR SU NOM-BRE.",
-        "MI MO-CHI-LA ES-TÁ LLE-NA DE LI-BROS Y CO-LO-RES.",
-        "LA PE-LO-TA RU-E-DA RÁ-PI-DO POR EL CAM-PO Y CA-E EN LA POR-TE-RÍ-A.",
+        "El NI-nyo u-sa un LA-pis a-ma-RI-yo pa-ra es-kri-BIR su NOM-bre.",
+        "Mi Mo-CHI-la es-TA ye-NA de LI-bros i ko-LO-res.",
+        "La Pe-LO-ta ru-E-da RA-pi-do por el KAM-po i ka-e en la por-te-RI-a.",
       ],
     ],
     2: [
-      ["MA-NZA-NA", "PAN", "PEZ"],
-      ["QUIE-RO UNA MA-NZA-NA.", "EL PAN ES-TÁ CA-LIEN-TE.", "EL PEZ NA-DA."],
+      ["MAN-sa-na", "Pan", "Pes"],
+      ["Kie-ro u-na MAN-sa-na.", "El pan es-TA ka-LYEN-te.", "El pes NA-da."],
       [
-        "LA NI-ÑA CO-ME UNA MA-NZA-NA RO-JA POR-QUE TIE-NE HAM-BRE.",
-        "EL PAN RE-CIÉN HOR-NEA-DO HUE-LE DE-LI-CIO-SO Y ES-TÁ SUA-VE.",
-        "EL PEZ NA-DA RÁ-PI-DO EN EL MAR MIENTRAS ES-QUI-VA LAS O-LAS.",
+        "La NI-nya ko-me u-na MAN-sa-na ro-ha por-ke TYE-ne AM-bre.",
+        "El pan re-SYEN or-NE-a-do WE-le de-li-SYO-so i es-TA swa-ve.",
+        "El pes NA-da RA-pi-do en el MAR mien-tras es-KI-ba las O-las.",
       ],
     ],
     3: [
-      ["MA-MÁ", "CA-MA", "PA-PÁ"],
-      ["MA-MÁ CO-CI-NA.", "LA CA-MA ES-TÁ TEN-DI-DA.", "MI PA-PÁ DUER-ME."],
+      ["Ma-MA", "KA-ma", "Pa-PA"],
+      ["Ma-MA ko-SI-na.", "La KA-ma es-TA ten-DI-da.", "Mi Pa-PA DWER-me."],
       [
-        "MI MA-MÁ CO-CI-NA AR-ROZ MIENTRAS YO LA A-YU-DO.",
-        "LA CA-MA TIE-NE UNA CO-BI-JA RO-JA Y MU-CHOS CO-JI-NES.",
-        "MI PA-PÁ DUER-ME TRAN-QUI-LO EN SU CUAR-TO.",
+        "Mi Ma-MA ko-SI-na ar-ROS mien-tras yo la a-YU-do.",
+        "La KA-ma TYE-ne u-na ko-BI-ha ro-ha i MU-chos ko-HI-nes.",
+        "Mi Pa-PA DWER-me tran-KI-lo en su KWAR-to.",
       ],
     ],
     4: [
-      ["MA-NOS", "CE-PI-LLO", "PI-ES"],
-      ["LÁ-VA-TE LAS MA-NOS.", "U-SO EL CE-PI-LLO DE DIEN-TES.", "MIS PIES COR-REN."],
+      ["MA-nos", "Se-pi-yo", "Pyes"],
+      ["LA-va-te las MA-nos.", "U-so el Se-pi-yo de DYEN-tes.", "Mis Pyes KO-ren."],
       [
-        "DE-BE-MOS LA-VAR-NOS LAS MA-NOS AN-TES DE CO-MER PA-RA NO EN-FER-MAR-NOS.",
-        "CA-DA MA-ÑA-NA U-SO MI CE-PI-LLO DE DIEN-TES CON PAS-TA DE MEN-TA.",
-        "MIS PIES CO-RREN RÁ-PI-DO CUAN-DO JU-E-GO EN EL PAR-QUE.",
+        "De-be-mos la-VAR-nos las MA-nos AN-tes de ko-MER pa-ra no en-fer-MAR-nos.",
+        "Ka-da ma-NYA-na u-so mi Se-pi-yo de DYEN-tes kon pas-ta de men-ta.",
+        "Mis Pyes KO-ren RA-pi-do kwan-do HU-e-go en el PAR-ke.",
       ],
     ],
     5: [
-      ["A-VIÓN", "BI-CI-CLE-TA", "BAR-CO"],
-      ["EL A-VIÓN VUE-LA.", "LA BI-CI-CLE-TA ES A-ZUL.", "EL BAR-CO NA-VE-GA."],
+      ["A-BYON", "Bi-si-KLE-ta", "BAR-ko"],
+      ["El A-BYON BWE-la.", "La Bi-si-KLE-ta es a-SUL.", "El BAR-ko na-be-GA."],
       [
-        "EL A-VIÓN DES-PE-GA DES-DE LA PIS-TA Y SU-BE EN-TRE LAS NU-BES.",
-        "EL NI-ÑO MON-TA SU BI-CI-CLE-TA EN EL PAR-QUE CA-DA TAR-DE.",
-        "EL BAR-CO NA-VE-GA LEN-TO POR EL MAR HAS-TA LLE-GAR A PUER-TO.",
+        "El A-BYON des-PE-ga des-de la PIS-ta i su-be EN-tre las NU-bes.",
+        "El NI-nyo MON-ta su Bi-si-KLE-ta en el PAR-ke ka-da TAR-de.",
+        "El BAR-ko na-be-GA len-to por el MAR as-ta ye-GAR a PWER-to.",
       ],
     ],
     6: [
-      ["PE-LO-TA", "CO-LUM-PIO", "RE-SBA-LA-DI-LLA"],
-      ["LAN-ZA LA PE-LO-TA.", "ME SU-BO AL CO-LUM-PIO.", "BA-JA POR LA RE-SBA-LA-DI-LLA."],
+      ["Pe-LO-ta", "Ko-lum-pyo", "Res-ba-la-DI-ya"],
+      ["LAN-sa la Pe-LO-ta.", "Me SU-bo al Ko-lum-pyo.", "Ba-ha por la Res-ba-la-DI-ya."],
       [
-        "JU-GA-MOS CON LA PE-LO-TA Y CO-RRE-MOS TO-DOS JUNTOS.",
-        "EL NI-ÑO SU-BE AL CO-LUM-PIO Y SE BA-LAN-CEA MUY A-LTO.",
-        "LA NI-ÑA BA-JA POR LA RE-SBA-LA-DI-LLA Y RÍ-E CON A-LE-GRÍ-A.",
+        "Ju-ga-mos kon la Pe-LO-ta i ko-re-mos to-dos HUN-tos.",
+        "El NI-nyo su-be al Ko-lum-pyo i se ba-lan-SE-a muy AL-to.",
+        "La NI-nya ba-ha por la Res-ba-la-DI-ya i RI-e kon a-le-GRI-a.",
       ],
     ],
   };
+
 
   for (const levelKey of Object.keys(phrases)) {
     const sublevels = phrases[levelKey];
@@ -171,6 +172,6 @@ async function generateSpeech(outputFolder = "./audios") {
 
 
 app.listen(PORT, () => {
-    //generateSpeech();
+    generateSpeech();
     console.log(`<|Berkeley listening port ${PORT}|>`); // Log server start and port information
 });
