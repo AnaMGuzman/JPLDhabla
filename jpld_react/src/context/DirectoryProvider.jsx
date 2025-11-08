@@ -121,4 +121,14 @@ export async function setPlayers(dispatch, players) {
 }
 
 
+export async function textToSpeech(text) {
+  try {
+    const response = await api.post('/tts', { text }); 
+    return response.data; 
+  } catch (error) {
+    console.error("Error Turning Text To Speech:", error);
+  }
+}
+
+
 export default DirectoryProvider;

@@ -9,12 +9,15 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.12.1",
     "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "gtts": "^0.2.1",
     "nodemon": "^3.1.10",
     "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.1",
     "react-scripts": "5.0.1",
+    "text-to-speech-js": "^1.1.11",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

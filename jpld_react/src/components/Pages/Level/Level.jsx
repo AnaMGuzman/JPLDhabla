@@ -179,7 +179,7 @@ export const Level = () => {
   }, [level, scene]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setAnimateIntro(false), 1000);
+    const timer = setTimeout(() => setAnimateIntro(false), 5000);
     return () => clearTimeout(timer);
   }, []);
 
