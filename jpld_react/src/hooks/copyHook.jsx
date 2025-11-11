@@ -1,4 +1,3 @@
-// ✅ Reemplazo sencillo de useClipboard
 import { useState } from "react";
 
 export function useClipboardCustom() {
@@ -10,7 +9,7 @@ export function useClipboardCustom() {
       setCopied(true);
       setTimeout(() => setCopied(false), 1000);
     } catch (err) {
-      console.error("❌ Error al copiar:", err);
+      console.error("Error al copiar:", err);
     }
   };
 
