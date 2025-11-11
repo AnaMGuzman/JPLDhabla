@@ -31,7 +31,6 @@ import { ReactComponent as HouseBackground } from "../../../assets/house_back.sv
 import { ReactComponent as HygieneBackground } from "../../../assets/hygiene_back.svg";
 import { ReactComponent as TransportBackground } from "../../../assets/transport_back.svg";
 import { ReactComponent as ParkBackground } from "../../../assets/park_back.svg";
-import { SpeechResultPopup } from "../../Screens/PopUp/SpeechResultPopup.jsx";
 
 // ==== ANIMALS / ITEMS ====
 import { ReactComponent as Lion } from "../../../assets/lion.svg";
@@ -59,18 +58,7 @@ import { ReactComponent as Slide } from "../../../assets/slide.svg";
 export const Level = () => {
   const { state } = useAppContext();
   const { level = 0, difficulty = 1, scene = 0 } = state; // scene is 0-based
-  const [showPopup, setShowPopup] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
 
-  const handleResult = (correct) => {
-    setIsCorrect(correct);
-    setShowPopup(true);
-  };
-
-  const handleNextScene = () => {
-    setShowPopup(false);
-    console.log("Pasando a la siguiente escena...");
-  };
   const [showConfig, setShowConfig] = useState(false);
   const handleGearClick = () => setShowConfig((p) => !p);
   const [animateIntro, setAnimateIntro] = useState(true);
@@ -216,13 +204,6 @@ export const Level = () => {
   return (
     <div className={`background-anim-container ${animateIntro ? "start" : ""}`}>
       <BackgroundSVG className="background-svg background-pan-zoom" />
-      <SpeechResultPopup
-        isVisible={showPopup}
-        isCorrect={isCorrect}
-        onNext={handleNextScene}
-        onClose={() => setShowPopup(false)}
-      />
-
       <div
         className={`level-animal ${showAnimal ? "intro" : ""}`}
       >
@@ -231,7 +212,8 @@ export const Level = () => {
       </div>
 
       <div className={`level-overlay ${animateIntro ? "" : "show"}`}>
-        <LevelOverlay text={currentPhrase} onResult={handleResult} />      </div>
+        <LevelOverlay text={currentPhrase} />
+      </div>
 
       <div className="back-button">
         <Flechas direction="left" to="/level_selector" />

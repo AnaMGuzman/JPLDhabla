@@ -72,7 +72,7 @@
 /* ====== ANIMAL POSICIÓN NORMAL (A: abajo izquierda) ====== */
 .level-animal {
   position: absolute;
-  left: 15%;
+  left: 10%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
@@ -89,7 +89,6 @@
   max-width: 800px;
   height: auto;
 }
-
 
 
 /* ====== ANIMACIÓN DE ENTRADA SUAVE (NO EXPLOTA TAMAÑOS) ====== */
@@ -121,8 +120,10 @@
 /* ====== OVERLAY ====== */
 .level-overlay {
   position: absolute;
-  right: 10%;
-  top: 55%;
+  right: 5%;
+  top: 50%;
+  width: 50%;
+  height: auto;
   transform: translateY(calc(-50% + 25px));
   z-index: 5;
   opacity: 0;
