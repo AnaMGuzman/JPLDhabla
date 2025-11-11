@@ -12,81 +12,130 @@
  * Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
  */
 
-
- 
- .level-container {
+/* ====== BASE CONTAINER ====== */
+.level-container {
   width: 100%;
   height: 100vh;
-  display: flex;
   position: relative;
   overflow: hidden;
 }
 
+
+
 .background-svg {
   position: absolute;
-  inset: 0;
-  width: auto;
+  top: 50%;
+  left: 50%;
+  width: 150vw;
   height: 150vh;
   object-fit: cover;
-  transform: translate(-7%, -16%);
+  object-position: center;
+  transform-origin: center center;
   z-index: 0;
 }
 
+@keyframes panZoomDramatic {
+  0% {
+    transform: translate(-50%, -50%) translateX(0) translateY(0) scale(1.0);
+    filter: blur(2px) brightness(0.85);
+  }
+  25% {
+    transform: translate(-50%, -50%) translateX(-3%) translateY(-1%) scale(1.03);
+    filter: blur(1.5px) brightness(0.9);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(-6%) translateY(0) scale(1.06);
+    filter: blur(1px) brightness(0.95);
+  }
+  75% {
+    transform: translate(-50%, -50%) translateX(-9%) translateY(-1%) scale(1.08);
+    filter: blur(0.5px) brightness(0.98);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(-12%) translateY(0) scale(1.1);
+    filter: blur(0px) brightness(1);
+  }
+}
+
+.background-pan-zoom {
+  animation: panZoomDramatic 10s linear forwards;
+}
+.start .background-pan-zoom {
+  animation-play-state: running;
+}
+
+.background-anim-container:not(.start) .background-pan-zoom {
+  animation-play-state: paused;
+}
+
+
+/* ====== ANIMAL POSICIÓN NORMAL (A: abajo izquierda) ====== */
 .level-animal {
-  flex: 1;
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-/* Animation keyframes: center to final position */
-@keyframes flyIn {
-  0% {
-    transform: translate(-50%, -50%) scale(2.5);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(-103.5%, -50%) scale(1.065);
-    opacity: 1;
-  }
-}
-
-
-.level-animal.intro {
-  position: absolute;      /* start from center of viewport */
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-  animation: flyIn 1s cubic-bezier(0.65, 0, 0.35, 1) forwards; /* smooth easing */
-}
-
-.animal-svg {
-  max-width: 60%;
+/* Control TOTAL del tamaño del animal (no importa el SVG interno) */
+.level-animal .animal-svg {
+  width: 50vh;   /* tamaño aumentado para mejor visibilidad */
+  max-width: 800px;
   height: auto;
 }
 
+
+
+/* ====== ANIMACIÓN DE ENTRADA SUAVE (NO EXPLOTA TAMAÑOS) ====== */
+.level-animal.intro {
+  opacity: 1;
+}
+
+.level-animal.intro .animal-svg {
+  animation: animalReveal 1.8s ease-out forwards;
+}
+
+@keyframes animalReveal {
+  0% {
+    opacity: 0;
+    transform: translate(-80px, 50px) scale(1.6);
+    filter: blur(10px);
+  }
+  60% {
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+
+/* ====== OVERLAY ====== */
 .level-overlay {
-  flex: 1;
-  display: flex;
-  right: 7%;
-  top: 5%;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  opacity: 0; /* initially hidden */
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: absolute;
+  right: 10%;
+  top: 55%;
+  transform: translateY(calc(-50% + 25px));
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 1.4s ease, transform 1.4s ease;
 }
 
 .level-overlay.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-50%);
 }
 
-/* Gear fixed in top-right */
+
+/* ====== GEAR Y BACK BUTTON ====== */
 .gear-instance {
   position: fixed;
   top: 40px;

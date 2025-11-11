@@ -62,6 +62,7 @@ export const Level = () => {
   const [showConfig, setShowConfig] = useState(false);
   const handleGearClick = () => setShowConfig((p) => !p);
   const [animateIntro, setAnimateIntro] = useState(true);
+  const [showAnimal, setShowAnimal] = useState(false);
 
   // 🔤 PHRASES: [words, short sentences, long sentences] per level
   const phrases = {
@@ -166,31 +167,47 @@ export const Level = () => {
 
   const BackgroundSVG = backgrounds[level] || JungleBackground;
   const AnimalSVG = animalSets[level]?.[scene] || Lion;
-
+  
+  // Play sound when animal/component appears
   useEffect(() => {
-    const soundPath = audioSets[level]?.[scene];
-    if (soundPath) {
-      const audio = new Audio(soundPath);
-      audio.volume = state.settings.volume;
-      audio.play().catch((err) =>
-        console.error("Audio playback failed:", err)
-      );
+    if (showAnimal) {
+      const soundPath = audioSets[level]?.[scene];
+      if (soundPath) {
+        const audio = new Audio(soundPath);
+        audio.volume = state.settings.volume;
+        audio.play().catch((err) =>
+          console.error("Audio playback failed:", err)
+        );
+      }
     }
-  }, [level, scene]);
+  }, [showAnimal, level, scene, state.settings.volume]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setAnimateIntro(false), 5000);
-    return () => clearTimeout(timer);
-  }, []);
+  // Background animation: 8s, then animal appears (1.8s), then UI appears
+  // Total: 8s (background) + 1.8s (animal) = 9.8s before UI shows
+  
+  // Show animal after 8s (when background animation completes)
+  // ⬇️ ADJUST THIS VALUE (in milliseconds) to change when animal appears
+  const animalTimer = setTimeout(() => setShowAnimal(true), 8000);
+  
+  // Show UI after 9.8s (8s background + 1.8s animal animation)
+  // ⬇️ ADJUST THIS VALUE (in milliseconds) to change when phrase UI appears
+  const uiTimer = setTimeout(() => setAnimateIntro(false), 9800);
+  
+  return () => {
+    clearTimeout(animalTimer);
+    clearTimeout(uiTimer);
+  };
+}, []);
+
 
   return (
-    <div className="level-container">
-      <BackgroundSVG className="background-svg" />
-
+    <div className={`background-anim-container ${animateIntro ? "start" : ""}`}>
+      <BackgroundSVG className="background-svg background-pan-zoom" />
       <div
-        className={`level-animal ${animateIntro ? "intro" : ""}`}
-        onAnimationEnd={() => setAnimateIntro(false)}
+        className={`level-animal ${showAnimal ? "intro" : ""}`}
       >
+
         <AnimalSVG className="animal-svg" />
       </div>
 
