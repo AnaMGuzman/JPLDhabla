@@ -21,6 +21,8 @@ import { ReactComponent as Next } from "../../../assets/next.svg";
 import { ReactComponent as Repeat } from "../../../assets/repeat.svg";
 
 import { useAppContext, setScene } from "../../../context/DirectoryProvider.jsx";
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+import { useClipboardCustom } from "../../../hooks/copyHook.jsx";
 
 // Audio files from public folder
 const audioSets = {
@@ -33,11 +35,57 @@ const audioSets = {
   6: ["/sounds/ball_play.mp3", "/sounds/swing.mp3", "/sounds/slide.mp3"],
 };
 
+
+
 export const LevelOverlay = ({ text }) => {
   const { state, dispatch } = useAppContext();
   const [activeSyllable, setActiveSyllable] = useState(null);
+  const [textToCopy, setTextToCopy] = useState("");
+  const [isCopied, copy] = useClipboardCustom();
 
-  // --- 🔁 Repeat base sound (untouched) ---
+  const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+  const [sessionTranscript, setSessionTranscript] = useState("");
+  useEffect(() => {
+    if (transcript) {
+      console.log("speaking...", transcript);
+    }
+  }, [transcript]);
+  const startListening = () => {
+    setSessionTranscript("");
+    resetTranscript();
+    SpeechRecognition.startListening({ continuous: true, language: "es-ES" });
+  };
+
+  const stopListening = () => {
+    SpeechRecognition.stopListening();
+
+    const spoken = transcript.trim();
+    console.log("said...  ", spoken);
+
+    setSessionTranscript(spoken);
+
+    const normalize = (str) =>
+      str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^\w\s]|_/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toLowerCase();
+
+    const expected = normalize(text);
+    const said = normalize(spoken);
+
+    console.log("expected phrase: ", expected);
+
+    if (said && expected && said.includes(expected)) {
+      console.log("CORRECT");
+    } else {
+      console.log("INCORRECT");
+    }
+  };
+
+  // --- 🔁 Repeat base sound  ---
   const handleRepeatClick = () => {
     const currentLevel = state.level;
     const src = audioSets[currentLevel]?.[state.scene];
@@ -119,7 +167,8 @@ export const LevelOverlay = ({ text }) => {
         ))}
       </p>
       <div className="overlay-buttons">
-        <IconButton icon={Microphone} to="/game" className="btn-overlay" />
+        <IconButton icon={Microphone} onClick={startListening} className="btn-overlay" />
+        <IconButton icon={Microphone} onClick={stopListening} className="btn-overlay" />
         <IconButton
           icon={Repeat}
           onClick={handleRepeatSound}
