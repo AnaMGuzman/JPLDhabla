@@ -57,33 +57,31 @@ export const LevelOverlay = ({ text, onResult }) => {
     SpeechRecognition.startListening({ continuous: true, language: "es-ES" });
   };
 
-  const stopListening = () => {
-    SpeechRecognition.stopListening();
+const stopListening = () => {
+  SpeechRecognition.stopListening();
+  const spoken = transcript.trim();
+  console.log("said...  ", spoken);
+  setSessionTranscript(spoken);
+  
+  const normalize = (str) =>
+    str
+      .normalize("NFD")                     
+      .replace(/[\u0300-\u036f]/g, "")      
+      .replace(/[^\w\s]|_/g, "")           
+      .replace(/\s+/g, "")                  
+      .trim()                              
+      .toLowerCase();  
+      
+  const expected = normalize(text);
+  const said = normalize(spoken);
+  console.log("expected phrase:", expected);
+  console.log("normalized said:", said);
 
-    const spoken = transcript.trim();
-    console.log("said...  ", spoken);
-    setSessionTranscript(spoken);
-
-    const normalize = (str) =>
-      str
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\w\s]|_/g, "")
-        .replace(/\s+/g, " ")
-        .trim()
-        .toLowerCase();
-
-    const expected = normalize(text);
-    const said = normalize(spoken);
-    console.log("expected phrase: ", expected);
-
-    const correct = said && expected && said.includes(expected);
-    if (onResult) onResult(correct);
-
-    if (correct) console.log(" CORRECTO");
-    else console.log(" INCORRECTO");
-  };
-
+  const correct = said === expected;
+  if (onResult) onResult(correct);
+  if (correct) console.log("✅ CORRECTO");
+  else console.log("❌ INCORRECTO");
+};
   // --- 🔁 Repeat base sound  ---
   const handleRepeatClick = () => {
     const currentLevel = state.level;

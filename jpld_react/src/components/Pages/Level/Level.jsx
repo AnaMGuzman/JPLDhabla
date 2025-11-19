@@ -80,11 +80,11 @@ export const Level = () => {
   const phrases = {
     0: [
       ["MO-NO", "LE-ÓN", "E-LE-FAN-TE"],
-      ["EL MO-NO SAL-TA.", "EL LE-ÓN RU-GE.", "EL E-LE-FAN-TE CA-MI-NA."],
+      ["EL-MO-NO-SAL-TA.", "EL-LE-ÓN-RU-GE.", "EL-E-LE-FAN-TE-CA-MI-NA."],
       [
-        "EL MO-NO SAL-TA DE RA-MA EN RA-MA MIENTRAS GRI-TA FUER-TE.",
-        "EL LE-ÓN RU-GE EN ME-DIO DE LA SEL-VA CUAN-DO VE UNA PRE-SA.",
-        "EL E-LE-FAN-TE CA-MI-NA LEN-TA-MEN-TE POR EL RÍ-O CON SU TROM-PA AL-ZA-DA.",
+        "EL-MO-NO-SAL-TA-DE-RA-MA-EN-RA-MA-MIEN-TRAS-GRI-TA-FUER-TE.",
+        "EL-LE-ÓN-RU-GE-EN-ME-DIO-DE-LA-SEL-VA-CUAN-DO-VE-UNA-PRE-SA.",
+        "EL-E-LE-FAN-TE-CA-MI-NA-LEN-TA-MEN-TE-POR-EL-RÍ-O-CON-SU-TROM-PA-AL-ZA-DA.",
       ],
     ],
     1: [
