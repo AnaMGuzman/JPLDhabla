@@ -99,7 +99,7 @@ async function generateSpeech(outputFolder = "./audios") {
     ],
     3: [
       ["Ma-MA", "KA-ma", "Pa-PA"],
-      ["Ma-MA ko-SI-na.", "La KA-ma es-TA ten-DI-da.", "Mi Pa-PA DWER-me."],
+      ["Ma-MA-ko-SI-na.", "La-KA-ma-es-TA-ten-DI-da.", "Mi-Pa-PA-DUER-me."],
       [
         "Mi Ma-MA ko-SI-na ar-ROS mien-tras yo la a-YU-do.",
         "La KA-ma TYE-ne u-na ko-BI-ha ro-ha i MU-chos ko-HI-nes.",
