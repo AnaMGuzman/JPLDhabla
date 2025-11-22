@@ -74,7 +74,7 @@ Attribution required: *“SVG icons by Vecteezy.com”*
 
 ### Open-Source Libraries
 - **React** — MIT License  
-- **Vosk Speech Recognition Toolkit** — Apache License 2.0  
+- **gTTS (Google Text-to-Speech)** — Apache License 2.0  
 
 All external libraries retain their original licenses.
 
