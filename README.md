@@ -16,10 +16,25 @@ Its purpose is to provide children with a supportive environment to practice pro
 
 The **original idea and conceptual foundation** of this project were created by:
 
-- **Arturo Jafet Rodríguez Muñoz**  
 - **Ramón Alejandro Briseño Martínez**
+- **Arturo Jafet Rodríguez Muñoz**  
+
 
 Their conceptual contribution is acknowledged throughout the project and its usage.
+
+---
+
+## 💻 Original Code Authors
+
+The **intellectual authors of the original code** (design, structure, logic, and implementation) are:
+
+- **Rodrigo López Gómez**  
+- **Nahui Metztli Dado Delgadillo**  
+- **Ana Mariem Pérez Chacón**  
+- **Karla Avila Navarro**  
+- **Ana María Guzman Solís**
+
+Any use of code, derivative work, or adaptation must credit these authors.
 
 ---
 
@@ -39,19 +54,6 @@ These contributors created the foundation of the UX/UI experience used in the pr
 
 ---
 
-## 💻 Original Code Authors
-
-The **intellectual authors of the original code** (design, structure, logic, and implementation) are:
-
-- **Rodrigo López Gómez**  
-- **Nahui Metztli Dado Delgadillo**  
-- **Ana Mariem Pérez Chacón**  
-- **Karla Avila Navarro**  
-- **Ana María Guzman Solís**
-
-Any use of code, derivative work, or adaptation must credit these authors.
-
----
 
 ## ⚙️ Technologies Used
 
