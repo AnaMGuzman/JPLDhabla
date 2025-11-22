@@ -1,14 +1,14 @@
 # 🗣️ Speech Helper App for Kids
 
 **An interactive educational application designed to support children with speech and pronunciation development.**  
-The project integrates accessibility, playful interaction, and real-time feedback using technologies such as **React** and **Vosk**.
+The project integrates accessibility, playful interaction, and real-time feedback using technologies such as **React** and **gTTS (Google Text-to-Speech)**.
 
 ---
 
 ## 🌟 Overview
 
 **Speech Helper App for Kids** is a collaborative non-commercial project first conceived in 2025.  
-Its purpose is to provide children with a supportive environment to practice pronunciation through visual exercises, animations, and offline speech recognition.
+Its purpose is to provide children with a supportive environment to practice pronunciation through visual exercises, animations, and interactive feedback.
 
 ---
 
@@ -18,7 +18,6 @@ The **original idea and conceptual foundation** of this project were created by:
 
 - **Ramón Alejandro Briseño Martínez**
 - **Arturo Jafet Rodríguez Muñoz**  
-
 
 Their conceptual contribution is acknowledged throughout the project and its usage.
 
@@ -54,11 +53,10 @@ These contributors created the foundation of the UX/UI experience used in the pr
 
 ---
 
-
 ## ⚙️ Technologies Used
 
 - **React** — for the interactive user interface  
-- **Vosk Speech Recognition Toolkit** — for local/offline speech recognition  
+- **gTTS (Google Text-to-Speech)** — for generating audio feedback  
 - **JavaScript / Node.js** — core logic and local backend  
 - **CSS3** — responsive and accessible interface styling  
 - **SVG assets from Vecteezy** — for visual icons and child-friendly illustrations  
@@ -67,10 +65,10 @@ These contributors created the foundation of the UX/UI experience used in the pr
 
 ## 🧠 Features
 
-- 🎯 Pronunciation and speech-feedback powered by Vosk  
+- 🔊 Text-to-speech feedback powered by **gTTS**  
 - 🎮 Engaging, child-oriented interface  
 - 🧩 Adjustable difficulty and visual modules  
-- 🔊 Configurable volume, brightness, and letter size  
+- 🌗 Configurable volume, brightness, and letter size  
 - 🌈 Fully non-commercial open-source project  
 
 ---
@@ -100,7 +98,7 @@ You must:
 
 ### Open-source Technologies
 - **React** — MIT License  
-- **Vosk** — Apache License 2.0  
+- **gTTS (Google Text-to-Speech)** — Apache License 2.0  
 
 Each dependency maintains its own original license.
 
@@ -132,4 +130,3 @@ For academic, research, or educational collaboration of the original code:
 > García Torres, M., Jimenez Zepeda, C., Arreola Munguía, S., Velasco Gómez Llanos, D.,  
 > González Gómez, A. (2025). *Speech Helper App for Kids*.  
 > Licensed under CC BY-NC-SA 4.0.
-
